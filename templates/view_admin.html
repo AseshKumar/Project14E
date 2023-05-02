@@ -1,0 +1,22 @@
+
+
+{% extends 'common.html' %}
+{% block biswal %}
+    {% include 'admin_menu.html' %}
+    {% load static %}
+    <style>
+      .n1{
+          padding: 10px;
+          font-size: 20px;
+          font-family: "Agency FB";
+          color: mediumblue;
+      }
+    </style>
+    <table align="center" border="0">
+       <tr><th rowspan="5"><img src="{% static 'images/_20170915_124304-1.JPG' %}" width="200" height="200"></th></tr>
+       <tr><th class="n1">Name :Ak Biswal</th></tr>
+       <tr><th class="n1">Contact No :8917525524</th></tr>
+       <tr><th class="n1">Email : aseshbiswal1995@gmail.com</th></tr>
+       <tr><th class="n1">Adress : odisha</th></tr>
+    </table>
+{% endblock %}

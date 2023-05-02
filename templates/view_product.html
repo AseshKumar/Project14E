@@ -1,0 +1,116 @@
+
+{% extends 'common.html' %}
+{% block biswal %}
+    {% load static %}
+    {% include 'admin_menu.html' %}
+    <style>
+      .product_edit{
+          font-family: "Arial Black";
+          font-size: 30px;
+          background-color: wheat;
+          color: maroon;
+      }
+    .pe{
+        font-family: "Arial Black";
+          font-size: 20px;
+          background-color: maroon;
+          color: wheat;
+         padding: 10px;
+    }
+    .ps{
+        padding: 10px;
+        background-color: wheat;
+        color: maroon;
+        font-size: 20px;
+        font-family: "Agency FB";
+        width: 100px;
+    }
+    .pf{
+        padding: 10px;
+        background-color: maroon;
+        color: wheat;
+        font-size: 20px;
+        font-family: "Agency FB";
+        width: 100px;
+
+    }
+
+    </style>
+    <form action="{% url 'save_product' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" border="0">
+    <tr><th class="product_edit">Add Products</th></tr>
+    <tr><th class="pe"><input type="text" placeholder="Name" required name="z1"></th></tr>
+    <tr><th class="pe"><input type="number" placeholder="Price" required name="z2"></th></tr>
+    <tr><th class="pe"><input type="number" placeholder="Quantity" required name="z3"></th></tr>
+    <tr><th class="pe">Photo :<input type="file" required name="z4"></th></tr>
+    <tr><th class="pe"><button type="submit">Save</button> <th></tr>
+    </table>
+    </form>
+
+
+
+    <table align="center" border="2">
+    <tr>
+        <th class="ps">No</th>
+        <th class="ps">Name</th>
+        <th class="ps">Price</th>
+        <th class="ps">Quantityo</th>
+        <th class="ps">Photo</th>
+        <th class="ps">Status</th>
+        <th class="ps">Update</th>
+        <th class="ps">Delete</th>
+    </tr>
+           {% for x in page %}
+               <tr>
+                <th class="pf">{{ x.no }}</th>
+                <th class="pf">{{ x.name }}</th>
+                <th class="pf">{{ x.price }}</th>
+                <th class="pf">{{ x.quantity }}</th>
+                <th class="pf"><img src="{{ x.photo.url }}" width="100" height="100"></th>
+                <th class="pf">{{ x.status }}</th>
+                <th class="pf"><a href="{% url 'update_product' %}?no={{ x.no }}">
+                 Update</a>
+                </th>
+               <th class="pf">
+                  <a href="{% url 'delete' %}?no={{ x.no }}">
+                    <img src="{% static 'images/delete-forever.png' %}" width="56" height="56">
+                  </a>
+               </th>
+               </tr>
+           {% endfor %}
+         <tr>
+    <tr>
+             <th colspan="8">
+                 {% if page.has_previous %}
+
+                     <a href="{% url 'view_product' %}?page_no={{ page.previous_page_number }}">
+                        Previous
+                    </a>
+
+                 {% endif %}
+
+                 {% for x in page.paginator.page_range %}
+
+                     <span>
+                     <a href="{% url 'view_product' %}?page_no={{ x }}">
+                          {{ x }}
+                     </a>
+
+                     </span>
+
+                 {% endfor %}
+
+                 {% if page.has_next %}
+
+                    <a href="{% url 'view_product' %}?page_no={{ page.next_page_number }}">
+                        Next
+                    </a>
+
+                 {% endif %}
+
+             </th>
+         </tr>
+    </table>
+
+{% endblock %}

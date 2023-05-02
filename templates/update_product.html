@@ -1,0 +1,45 @@
+{% extends 'common.html' %}
+{% block biswal %}
+    {% include 'admin_menu.html' %}
+    <style>
+      .up {
+          font-size: 40px;
+          font-family: "Agency FB";
+          background-color: antiquewhite;
+          color: deeppink;
+          text-align: center;
+      }
+     .ue {
+         font-size: 20px;
+         padding: 10px;
+         font-family: "Agency FB";
+
+     }
+    </style>
+    <form action="{% url 'update' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table align="center" border="2">
+        <tr><th class="up" colspan="2">Upadate Products</th></tr>
+        <tr>
+            <th class="ue" align="right">N0 :</th>
+            <th class="ue" width="6o%"><input type="text" name="u1" value="{{ data.no }}"></th>
+        </tr>
+        <tr>
+            <th class="ue" align="right">Name :</th>
+            <th class="ue" width="6o%"><input type="text" name="u2" value="{{ data.name }}"></th>
+        </tr>
+        <tr>
+            <th class="ue" align="right">Price :</th>
+            <th class="ue" width="6o%"><input type="text" name="u3" value="{{ data.price }}"></th>
+        </tr>
+        <tr>
+            <th class="ue" align="right">Quantity :</th>
+            <th class="ue" width="6o%"><input type="text" name="u4" value="{{ data.quantity }}"></th>
+        </tr>
+
+        <tr ><th class="ue" colspan="2"><button type="submit">Save</button> <th></tr>
+    </table>
+
+   </form>
+{% endblock %}

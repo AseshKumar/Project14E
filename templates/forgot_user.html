@@ -1,0 +1,31 @@
+{% extends 'common.html' %}
+
+{% block biswal %}
+    {% include 'main_menu.html' %}
+    <style>
+       #password{
+           font-family: "Agency FB";
+           font-size: 20px;
+           background-color: green;
+           color: maroon;
+
+       }
+      .chnage{
+          padding: 10px;
+      }
+
+    </style>
+    <form action="{% url 'Save_details' %}" method="post">
+    {% csrf_token %}
+        <table align="center" border="0">
+            <tr><th id="password">Create New Password</th></tr>
+            <tr><th class="chnage"><input type="text" placeholder="Username" name="un"></th></tr>
+            <tr><th class="chnage"><input type="password" placeholder="New Password" name="new"></th></tr>
+            <tr><th class="chnage"><input type="password" placeholder="Confirm Password" name="confirm"></th></tr>
+            <tr><th class="chnage"><button type="submit">Save</button></th></tr>
+              {% if error %}
+            {{ error }}
+        {% endif %}
+        </table>
+    </form>
+{% endblock %}

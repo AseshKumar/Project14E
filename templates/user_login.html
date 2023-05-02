@@ -1,0 +1,51 @@
+{% extends 'common.html' %}
+{% block biswal %}
+    {% include 'main_menu.html' %}
+    <style>
+      #ul{
+         font-size: 30px;
+           font-family: "Agency FB";
+           background-color: gray;
+           color: maroon;
+
+
+      }
+     #user_login{
+         font-size: 20px;
+          font-family: "Agency FB";
+          background-color: maroon;
+          color: wheat;
+         padding: 10px;
+
+      }
+    #fp{
+        color: darkred;
+        font-size: 20px;
+        font-family: "Agency FB";
+        padding: 10px;
+        background-color: wheat;
+
+
+    }
+
+    </style>
+    <form action="{% url 'save_login' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" border="0">
+        <tr><th id="ul">Login Page</th></tr>
+    <tr><th id="user_login"><input type="text" placeholder="Username" required name="l1"></th></tr>
+    <tr><th id="user_login"><input type="password" placeholder="Password" required name="l2"></th></tr>
+    <tr><th id="user_login"><button type="submit">Login</button></th></tr>
+
+    <tr><th>
+        <a href="{% url 'change_password' %}">Change Password</a>
+    </th></tr>
+
+  {% if error %}
+            {{ error }}
+        {% endif %}
+        <tr><th id="fp"><a href="{% url 'forgot_user' %}">Fogot Password</a></th></tr>
+    </table>
+    </form>
+
+{% endblock %}

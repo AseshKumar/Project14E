@@ -1,0 +1,19 @@
+{% extends 'common.html' %}
+
+{% block biswal %}
+    <table align="center" border="2">
+
+      <tr>
+          <th>Product No</th>
+          <th>Prcduct Name</th>
+      </tr>
+    {% for k,v in data.items %}
+        {% if k != "csrftoken" %}
+        <tr>
+            <th>{{ k }}</th>
+            <th>{{ v }}</th>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+{% endblock %}

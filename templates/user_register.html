@@ -1,0 +1,36 @@
+
+
+{% extends 'common.html' %}
+{% block biswal %}
+    {% include 'main_menu.html' %}
+    <style>
+       .user{
+           background-color: wheat;
+           color: green;
+           font-family: "Arial Black";
+           font-size: 30px;
+           padding: 10px;
+       }
+       .re{
+           padding: 10px;
+           font-family: "Agency FB";
+           font-size: 20px;
+           color: wheat;
+           background-color: maroon;
+
+       }
+    </style>
+    <form action="{% url 'new_register' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" border="0">
+     <tr><th class="user">New Registations</th></tr>
+    <tr><th class="re"><input type="text" placeholder="Username" required name="y1"></th></tr>
+    <tr><th class="re"><input type="number" placeholder="Contact No" required name="y2"></th></tr>
+    <tr><th class="re"><input type="text" placeholder="Email Id" required name="y3"></th></tr>
+    <tr><th class="re"><input type="password" placeholder="Password" required name="y4"></th></tr>
+    <tr><th class="re"><button type="submit">Save</button> </th></tr>
+    </table>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+
+<style>
+    a:link{
+        text-decoration: none;
+    }
+    #main_menu{
+        font-family: "Arial Black";
+        font-size: 30px;
+        width: 150px;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+<table align="center" border="2">
+
+    <tr>
+          <th id="main_menu">
+              <a href="{% url 'main' %}">
+                  Home
+              </a>
+          </th>
+          <th id="main_menu">
+              <a href="{% url 'admin_login' %}">
+                  Admin
+              </a>
+          </th>
+          <th id="main_menu">
+              <a href="{% url 'user_register' %}">
+                  Registation
+              </a>
+          </th>
+          <th id="main_menu">
+              <a href="{% url 'user_login' %}">
+                  Login
+              </a>
+          </th>
+        <th id="main_menu">
+        <a href="{% url 'iteams_cart' %}"> Cart Items :
+            <span id="myid">
+                {% if length %}
+                    {{ length }}
+                    {% else %}
+                    {{ 0 }}
+                {% endif %}
+            </span>
+        </a>
+        </th>
+    </tr>
+
+</table>

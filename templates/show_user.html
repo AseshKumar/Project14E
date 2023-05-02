@@ -1,0 +1,48 @@
+{% extends 'common.html' %}
+{% block biswal %}
+   {% include 'admin_menu.html' %}
+
+
+    <style>
+     .au{
+         font-family: "Agency FB";
+         font-size: 50px;
+         background-color: maroon;
+         color: wheat;
+
+
+     }
+    #d1{
+        font-size: 30px;
+        font-family: "Agency FB";
+        padding: 10px;
+        background-color: wheat;
+        color: maroon;
+        text-align: center;
+        width: 120px;
+    }
+    </style>
+    <table align="center" border="0">
+    <tr><th class="au">All User List</th></tr>
+    </table>
+
+    <table align="center" border="2">
+       <tr>
+          <th id="d1">No</th>
+          <th id="d1">Name</th>
+          <th id="d1">Conatact no</th>
+          <th id="d1">Email id</th>
+          <th id="d1">Status</th>
+      </tr>
+    {% for x in data %}
+        <tr>
+          <th id="d1">{{ x.no }}</th>
+          <th id="d1">{{ x.name }}</th>
+          <th id="d1">{{ x.cno }}</th>
+          <th id="d1">{{ x.email }}</th>
+          <th id="d1">{{ x.status }}</th>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

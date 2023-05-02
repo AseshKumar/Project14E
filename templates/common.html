@@ -1,0 +1,55 @@
+{% load static %}
+<html>
+  <head>
+      <title>Online Shopping's</title>
+  </head>
+  <style>
+      body{
+          background-color: darkgreen;
+          text-decoration: none;
+      }
+      .titel{
+          font-family: "Agency FB";
+          font-size: 70px;
+          color: orangered;
+          width: 500px;
+          text-align: center;
+          height: 80px;
+
+
+      }
+      .copy{
+          font-size: 20px;
+          font-family: "Agency FB";
+          width: 450px;
+          color: wheat;
+          padding: 10px;
+          border: 2px;
+      }
+
+  </style>
+<body>
+   <table align="center" border="0">
+       <tr>
+           <th><img src="{% static 'images/online shopping.jpg' %}" width="200" height="200" ></th>
+           <th class="titel">
+               <a>
+                   Shopping Sites
+               </a>
+           </th>
+       </tr>
+       <tr>
+           <th colspan="2">
+               {% block biswal %}
+
+               {% endblock %}
+           </th>
+       </tr>
+       <tr>
+           <th class="copy" colspan="2" width="200" height="200">
+               Copyrighht@python with biswal
+           </th>
+       </tr>
+   </table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+
+{% extends 'common.html' %}
+{% block biswal %}
+
+    <style>
+        .p1{
+            font-family: "Agency FB";
+            padding: 10px;
+            color: gray;
+            font-size: 10px;
+        }
+       .t1{
+           font-size: 30px;
+           font-family: "Agency FB";
+           background-color: gray;
+           color: maroon;
+       }
+        .ms{
+            background-color: yellow;
+            font-size: 20px;
+        }
+    </style>
+    <form action="{% url 'view_admin_login' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" border="0">
+    <tr><th class="t1">Admin Login</th></tr>
+    <tr><th class="p1"><input type="text" placeholder="Username" required name="a1"></th></tr>
+    <tr><th class="p1"><input type="password" placeholder="Password" required name="a2"></th></tr>
+    <tr><th class="p1"><button type="submit">Login</button> </th></tr>
+
+        {% if messages %}
+        <tr>
+        <th class="ms">
+            {% for x in messages %}
+                {{ x }}
+            {% endfor %}
+        </th>
+        </tr>
+    {% endif %}
+    </table>
+    </form>
+
+{% endblock %}

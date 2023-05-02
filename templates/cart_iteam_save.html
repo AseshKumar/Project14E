@@ -1,0 +1,7 @@
+{% extends 'common.html' %}
+{% block biswal %}
+    {% include 'main_menu.html' %}
+{% for x in data %}
+    {{ x.no }}
+    {% endfor %}
+{% endblock %}

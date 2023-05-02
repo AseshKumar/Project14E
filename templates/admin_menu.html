@@ -1,0 +1,33 @@
+
+<style>
+    a:link{
+        text-decoration: none;
+    }
+    #main_menu{
+        font-family: "Arial Black";
+        font-size: 20px;
+        width: 150px;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+<table align="center" border="0">
+
+    <tr>
+          <th id="main_menu">
+              <a href="{% url 'main' %}">Home</a></th>
+          <th id="main_menu">
+              <a href="{% url 'show_user' %}">User</a>
+          </th>
+          <th id="main_menu">
+             <a href="{% url 'view_product' %}">Product</a>
+          </th>
+          <th id="main_menu">
+              <a href="{% url 'main' %}">
+                  Logot
+              </a>
+          </th>
+
+    </tr>
+
+</table>
